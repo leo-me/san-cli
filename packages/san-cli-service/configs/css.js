@@ -25,8 +25,6 @@ module.exports = {
             const rootSourceMap = !!rootOptions.sourceMap;
             // 这里loaderOptions直接用 projectOptions.css 的内容
             // prettier-ignore
-
-
             const {
                 extract = isProd,
                 // 不在 css 中单独配置，默认跟 rootOptions.sourceMap 一致
