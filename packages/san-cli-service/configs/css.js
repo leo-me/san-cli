@@ -25,14 +25,15 @@ module.exports = {
             const rootSourceMap = !!rootOptions.sourceMap;
             // 这里loaderOptions直接用 projectOptions.css 的内容
             // prettier-ignore
+
+
             const {
                 extract = isProd,
                 // 不在 css 中单独配置，默认跟 rootOptions.sourceMap 一致
                 sourceMap = rootSourceMap,
                 loaderOptions = {},
                 cssPreprocessor,
-                cssnanoOptions,
-                cssPath
+                cssnanoOptions
             } = cssOptions;
             const postCSSOptions = loaderOptions.postcss;
             // prettier-ignore
@@ -69,8 +70,8 @@ module.exports = {
             );
 
             // use relative publicPath in extracted CSS based on extract location
-            // if config has set cssPath,use cssPath
-            const cssPublicPath = cssPath || '../'.repeat(
+            // if config has set cssPublicPath,use config cssPublicPath
+            const cssPublicPath = cssOptions.cssPublicPath || rootOptions.publicPath || '../'.repeat(
                 extractOptions.filename.replace(/^\.[\/\\]/, '').split(/[\/\\]/g).length - 1
             );
             // 优先使用 san.config 定义的内容
