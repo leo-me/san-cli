@@ -31,7 +31,8 @@ module.exports = {
                 sourceMap = rootSourceMap,
                 loaderOptions = {},
                 cssPreprocessor,
-                cssnanoOptions
+                cssnanoOptions,
+                cssPath
             } = cssOptions;
             const postCSSOptions = loaderOptions.postcss;
             // prettier-ignore
@@ -68,7 +69,8 @@ module.exports = {
             );
 
             // use relative publicPath in extracted CSS based on extract location
-            const cssPublicPath = '../'.repeat(
+            // if config has set cssPath,use cssPath
+            const cssPublicPath = cssPath || '../'.repeat(
                 extractOptions.filename.replace(/^\.[\/\\]/, '').split(/[\/\\]/g).length - 1
             );
             // 优先使用 san.config 定义的内容
