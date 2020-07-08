@@ -82,8 +82,7 @@ const schema = joi
                 stylus: joi.object(),
                 // 推荐使用 postcss.config.js
                 postcss: joi.object()
-            }),
-            publicPath: joi.string()
+            })
         }),
         // webpack 相关配置
         alias: joi.object(),
