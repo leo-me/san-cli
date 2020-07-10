@@ -68,7 +68,7 @@ module.exports = {
             );
 
             // use relative publicPath in extracted CSS based on extract location
-            // if config has set css publicPath,use config css publicPath
+            // if config has set publicPath, use config publicPath
             const cssPublicPath = rootOptions.publicPath || '../'.repeat(
                 extractOptions.filename.replace(/^\.[\/\\]/, '').split(/[\/\\]/g).length - 1
             );
